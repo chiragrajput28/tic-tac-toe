@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Socket 1</title>
+    <title> testing </title>
 </head>
-<body> 
-    Client1
-    <button onclick="sendMessage()">send message</button>
+
+<body>
+    Your Symbol: <div id="symbol">Connecting to server</div>
+    <div class="board">
+        <button class="cell" id="a0"></button>
+        <button class="cell" id="a1"></button>
+        <button class="cell" id="a2"></button>
+        <br>
+        <button class="cell" id="b0"></button>
+        <button class="cell" id="b1"></button>
+        <button class="cell" id="b2"></button>
+        <br>
+        <button class="cell" id="c0"></button>
+        <button class="cell" id="c1"></button>
+        <button class="cell" id="c2"></button>
+    </div>
+
+    <!-- <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script> -->
+    <script src="/tictactoe.js"></script>
 </body>
-<script>
-    const socket = new WebSocket('ws://localhost:5050');            // create webSocket connection
 
-    socket.addEventListener('open', event => {                  // client sending a message
-        socket.send('connected to websocket server');
-    });
-
-    socket.addEventListener('message', event => {           // listen for messages 
-    console.log('Message from server ', event.data);
-    });
-
-    const sendMessage = () => {                             // client sending message on clicking 
-        socket.send('hello from client1')
-    }
-</script>
 </html>
